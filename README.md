@@ -1,82 +1,103 @@
-# Redes-CCNA
-🎓 Redes CCNA: Topologías y Conceptos Fundamentales
-La certificación CCNA (Cisco Certified Network Associate) se enfoca en el nivel técnico de configuración y mantenimiento de equipos de redes Cisco (Examen 200-301)
-. Estos son sus conceptos más importantes:
-📐 Topologías de Red
-Las topologías describen cómo se organizan y conectan físicamente o lógicamente los dispositivos en una red
-:
-Estrella: Todos los dispositivos se conectan a un nodo central (Switch o Hub); es la más común en redes locales
-.
-Bus: Todos comparten un único cable central; es económica pero riesgosa, ya que si el cable falla, toda la red cae
-.
-Anillo: Los dispositivos forman un círculo cerrado y los datos viajan en una sola dirección
-.
-Malla: Cada dispositivo se conecta con todos los demás, ofreciendo alta redundancia y tolerancia a fallos
-.
-Árbol: Una variante jerárquica de la estrella, ideal para escalabilidad en organizaciones
-.
-📚 Modelos de Referencia
-Modelo OSI: Marco conceptual de 7 capas (Física, Enlace, Red, Transporte, Sesión, Presentación y Aplicación) que estructura la comunicación entre sistemas abiertos
-.
-Modelo TCP/IP: El modelo práctico de 4 capas (Acceso a la Red, Internet, Transporte y Aplicación) que rige el internet actual
-.
-🛠️ Configuración y Componentes Clave
-Segmentación y VLANs: Las VLANs (Virtual LANs) permiten dividir una red física en varias redes lógicas para mejorar la seguridad y el rendimiento
-. La VLAN 1 es la interfaz virtual de administración predeterminada en switches Cisco
-.
-Router-on-a-Stick: Método para permitir la comunicación entre diferentes VLANs utilizando un router conectado a un switch mediante un enlace troncal (trunk) y configurando subinterfaces para cada VLAN
-.
-Protocolos Esenciales:
-IP: Encargado del direccionamiento y enrutamiento
-.
-TCP/UDP: TCP es orientado a conexión (confiable, usa el 3-way handshake), mientras que UDP no lo es (más rápido, ideal para streaming)
-.
-ICMP: Utilizado por herramientas como ping para verificar la conectividad de extremo a extremo
-.
-DHCP y DNS: DHCP asigna direcciones IP automáticamente
-, mientras que DNS traduce nombres de dominio a direcciones IP
-.
-Subnetting: Técnica para dividir una red IP grande en subredes más pequeñas, optimizando el uso de direcciones.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes CCNA - Documentación y Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
 
-📍Mi Laboratorio de Cisco
-<img width="748" height="765" alt="laboratorio" src="https://github.com/user-attachments/assets/b5559c29-3384-452d-a8ef-f09d3f665e1b" />
-<img width="892" height="646" alt="packet" src="https://github.com/user-attachments/assets/bc2b8a59-671d-4bc8-a92c-b15d75dbc491" />
+    <header class="bg-blue-700 text-white py-12 shadow-lg">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">🎓 Certificación CCNA 200-301</h1>
+            <p class="text-xl text-blue-100">Topologías, Conceptos Fundamentales y Pentesting de Redes</p>
+        </div>
+    </header>
 
-Para completar esta práctica de laboratorio sobre la resolución de problemas de configuración de VLAN emepzaremos con:
-Parte 1: Armado de la red y configuración básica
-Cableado de la red: Realiza la conexión física de los dispositivos (2 switches, 1 router y las PC) tal como se muestra en el diagrama de la topología
-. Utilizo cables Ethernet para las conexiones de red y cables de consola para la configuración de los dispositivos Cisco
-.
-Configuración de los equipos host: Asigno las direcciones IP, máscaras de subred y gateways predeterminados a cada PC (PC-A, PC-B y PC-C) siguiendo la Tabla de direccionamiento
-.
-Inicialización de switches: Inicializo y vuelvo a cargar los switches S1 y S2 según sea necesario para comenzar con una configuración limpia
-.
-Configuración del Router: Se implementa subinterfaces en el Router R1 para permitir la comunicación entre las diferentes VLANs (VLAN 10, 20 y 30)
-.
-Parte 2 y 3: Resolución de problemas de VLAN
-Identificar y corregir errores: Los switches ya cuentan con información de VLAN y enlaces troncales (802.1Q), pero tienen errores de configuración que causan problemas de conectividad
-. Se Debe:
-Resolver los problemas específicos de la VLAN 10
-.
-Resolver los problemas específicos de la VLAN 20
-.
-Asegurarte de que los puertos estén asignados correctamente (F0/1 como enlace troncal, F0/6-12 a VLAN 10, etc.)
-.
-<img width="747" height="741" alt="Captura de pantalla 2026-03-06 080700" src="https://github.com/user-attachments/assets/90b15991-0d9a-43d8-902d-4a9fe21143db" />
+    <main class="container mx-auto px-6 py-10">
+        
+        <section class="grid md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-project-diagram mr-2"></i> Topologías de Red</h2>
+                <ul class="space-y-3">
+                    <li><strong>Estrella:</strong> Nodo central (Switch). Estándar en LAN.</li>
+                    <li><strong>Malla:</strong> Alta redundancia, todos conectados con todos.</li>
+                    <li><strong>Árbol:</strong> Estructura jerárquica escalable.</li>
+                    <li><strong>Anillo & Bus:</strong> Modelos legacy y específicos.</li>
+                </ul>
+            </div>
 
+            <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-green-500">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-layer-group mr-2"></i> Modelos de Referencia</h2>
+                <div class="flex justify-between gap-4 text-sm">
+                    <div class="w-1/2">
+                        <h3 class="font-bold border-b mb-2">Modelo OSI</h3>
+                        <ol class="list-decimal list-inside">
+                            <li>Física</li><li>Enlace</li><li>Red</li><li>Transporte</li><li>Sesión</li><li>Presentación</li><li>Aplicación</li>
+                        </ol>
+                    </div>
+                    <div class="w-1/2">
+                        <h3 class="font-bold border-b mb-2">Modelo TCP/IP</h3>
+                        <ol class="list-decimal list-inside">
+                            <li>Acceso a Red</li><li>Internet</li><li>Transporte</li><li>Aplicación</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="bg-slate-800 text-white p-8 rounded-xl shadow-2xl mb-16">
+            <h2 class="text-3xl font-bold mb-6 text-blue-400"><i class="fas fa-terminal mr-2"></i> Laboratorio de Cisco: Router-on-a-Stick</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">Objetivos de Configuración</h3>
+                    <p class="text-slate-300 mb-4">Resolución de problemas en VLAN 10 y 20, configuración de enlaces troncales 802.1Q.</p>
+                    <div class="bg-slate-900 p-4 rounded font-mono text-sm text-green-400">
+                        # Conf. Subinterfaz en R1<br>
+                        interface g0/0.10<br>
+                        encapsulation dot1Q 10<br>
+                        ip address 192.168.10.1 255.255.255.0
+                    </div>
+                </div>
+                <div class="border border-slate-700 p-4 rounded bg-slate-700/50">
+                    <h3 class="text-xl font-semibold mb-3">Checklist del Lab</h3>
+                    <ul class="space-y-2 text-slate-300">
+                        <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Inicialización de S1 y S2</li>
+                        <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Asignación de Puertos F0/6-12</li>
+                        <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Verificación de Conectividad ICMP</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-🛡️ Redes en el Pentesting
-El hacking ético de redes se basa en identificar y aprovechar vulnerabilidades de forma controlada para mejorar la seguridad
-. A continuación, se detallan los pilares y herramientas clave utilizados en estas auditorías:
-🔍 Reconocimiento y Escaneo: La herramienta favorita para el descubrimiento de dispositivos y puertos es Nmap, la cual permite realizar "radiografías" de la red para ver qué equipos están activos y qué servicios (como SSH, HTTP o SMB) están corriendo en sus puertos
-. Mediante escaneos sigilosos (stealth scans), un atacante puede intentar pasar desapercibido al no completar el saludo de tres vías de TCP
-.
-📶 Hacking de Redes Wi-Fi: Para vulnerar redes inalámbricas, se suelen capturar los handshakes (apretones de manos entre el router y el dispositivo), los cuales contienen la contraseña cifrada que luego puede ser descifrada mediante ataques de fuerza bruta o diccionarios usando herramientas como Hashcat o Airgeddon
-.
-🎭 Ingeniería Social y Gemelo Maligno: El ataque de Evil Twin consiste en crear un punto de acceso falso con un portal cautivo que imita uno legítimo para engañar al usuario y que este ingrese su contraseña en texto claro
-.
-🕵️ Sniffing y Ataques MITM: Mediante el envenenamiento ARP (ARP Spoofing), un pentester puede posicionarse como un "hombre en el medio" (Man-in-the-Middle), interceptando el tráfico entre la víctima y el router
-. Herramientas como Bettercap facilitan este proceso y permiten capturar credenciales en sitios no cifrados (HTTP)
-.
-📊 Análisis de Paquetes: Wireshark es el analizador de protocolos estándar que permite ver detalladamente cada paquete de datos, facilitando la identificación de contraseñas enviadas mediante peticiones POST en formularios web.
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10 underline decoration-red-500">🛡️ Redes en el Pentesting</h2>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div class="p-6 bg-white rounded-lg shadow hover:shadow-xl transition">
+                    <i class="fas fa-search text-4xl text-red-500 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Nmap & Escaneo</h3>
+                    <p class="text-sm text-gray-600">Descubrimiento de servicios y sigilo TCP.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow hover:shadow-xl transition">
+                    <i class="fas fa-user-secret text-4xl text-red-500 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">MITM Attacks</h3>
+                    <p class="text-sm text-gray-600">ARP Spoofing e interceptación con Bettercap.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow hover:shadow-xl transition">
+                    <i class="fas fa-wifi text-4xl text-red-500 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Wireless Hacking</h3>
+                    <p class="text-sm text-gray-600">Captura de Handshakes y Evil Twin attacks.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center border-t border-slate-800">
+        <p>Repositorio Redes-CCNA &copy; 2026 - Configurado para GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
