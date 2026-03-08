@@ -1,104 +1,74 @@
 ###Redes
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redes CCNA - Documentación y Labs</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+🎓 Redes CCNA: Topologías, Configuración y Pentesting
+Este repositorio es una guía integral sobre los conceptos fundamentales de la certificación Cisco Certified Network Associate (CCNA), incluyendo laboratorios prácticos de configuración y una introducción a la seguridad ofensiva en redes.
 
-    <header class="bg-blue-700 text-white py-12 shadow-lg">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">🎓 Certificación CCNA 200-301</h1>
-            <p class="text-xl text-blue-100">Topologías, Conceptos Fundamentales y Pentesting de Redes</p>
-        </div>
-    </header>
+📐 1. Topologías de Red
+Las topologías describen la organización física o lógica de los dispositivos.
+network topologies diagram star mesh ring bus tree, generada por IA
+Shutterstock
+<img width="748" height="765" alt="laboratorio" src="https://github.com/user-attachments/assets/d2498f97-8322-463a-a1e6-5dea9f0fca39" />
 
-    <main class="container mx-auto px-6 py-10">
-        
-        <section class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500">
-                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-project-diagram mr-2"></i> Topologías de Red</h2>
-                <ul class="space-y-3">
-                    <li><strong>Estrella:</strong> Nodo central (Switch). Estándar en LAN.</li>
-                    <li><strong>Malla:</strong> Alta redundancia, todos conectados con todos.</li>
-                    <li><strong>Árbol:</strong> Estructura jerárquica escalable.</li>
-                    <li><strong>Anillo & Bus:</strong> Modelos legacy y específicos.</li>
-                </ul>
-            </div>
+Topología	Características	Caso de Uso
+Estrella	Conexión a un nodo central (Switch/Hub).	Redes LAN modernas (la más común).
+Malla	Redundancia total; todos conectados entre sí.	Redes críticas y proveedores de Internet.
+Bus	Un solo cable central (backbone).	Redes antiguas o de bajo presupuesto.
+Árbol	Jerárquica; combinación de estrellas.	Escalabilidad en campus corporativos.
+<img width="747" height="741" alt="Captura de pantalla 2026-03-06 080700" src="https://github.com/user-attachments/assets/ee731073-1a21-4e43-baf7-bdea31f3b485" />
 
-            <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-green-500">
-                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-layer-group mr-2"></i> Modelos de Referencia</h2>
-                <div class="flex justify-between gap-4 text-sm">
-                    <div class="w-1/2">
-                        <h3 class="font-bold border-b mb-2">Modelo OSI</h3>
-                        <ol class="list-decimal list-inside">
-                            <li>Física</li><li>Enlace</li><li>Red</li><li>Transporte</li><li>Sesión</li><li>Presentación</li><li>Aplicación</li>
-                        </ol>
-                    </div>
-                    <div class="w-1/2">
-                        <h3 class="font-bold border-b mb-2">Modelo TCP/IP</h3>
-                        <ol class="list-decimal list-inside">
-                            <li>Acceso a Red</li><li>Internet</li><li>Transporte</li><li>Aplicación</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </section>
+📚 2. Modelos de Referencia
+Entender cómo se encapsulan los datos es vital para el diagnóstico de fallos.
 
-        <section class="bg-slate-800 text-white p-8 rounded-xl shadow-2xl mb-16">
-            <h2 class="text-3xl font-bold mb-6 text-blue-400"><i class="fas fa-terminal mr-2"></i> Laboratorio de Cisco: Router-on-a-Stick</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-3">Objetivos de Configuración</h3>
-                    <p class="text-slate-300 mb-4">Resolución de problemas en VLAN 10 y 20, configuración de enlaces troncales 802.1Q.</p>
-                    <div class="bg-slate-900 p-4 rounded font-mono text-sm text-green-400">
-                        # Conf. Subinterfaz en R1<br>
-                        interface g0/0.10<br>
-                        encapsulation dot1Q 10<br>
-                        ip address 192.168.10.1 255.255.255.0
-                    </div>
-                </div>
-                <div class="border border-slate-700 p-4 rounded bg-slate-700/50">
-                    <h3 class="text-xl font-semibold mb-3">Checklist del Lab</h3>
-                    <ul class="space-y-2 text-slate-300">
-                        <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Inicialización de S1 y S2</li>
-                        <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Asignación de Puertos F0/6-12</li>
-                        <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Verificación de Conectividad ICMP</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+Modelo OSI: Marco teórico de 7 capas (Física, Enlace, Red, Transporte, Sesión, Presentación, Aplicación).
 
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-10 underline decoration-red-500">🛡️ Redes en el Pentesting</h2>
-            <div class="grid md:grid-cols-3 gap-6 text-center">
-                <div class="p-6 bg-white rounded-lg shadow hover:shadow-xl transition">
-                    <i class="fas fa-search text-4xl text-red-500 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Nmap & Escaneo</h3>
-                    <p class="text-sm text-gray-600">Descubrimiento de servicios y sigilo TCP.</p>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow hover:shadow-xl transition">
-                    <i class="fas fa-user-secret text-4xl text-red-500 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">MITM Attacks</h3>
-                    <p class="text-sm text-gray-600">ARP Spoofing e interceptación con Bettercap.</p>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow hover:shadow-xl transition">
-                    <i class="fas fa-wifi text-4xl text-red-500 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Wireless Hacking</h3>
-                    <p class="text-sm text-gray-600">Captura de Handshakes y Evil Twin attacks.</p>
-                </div>
-            </div>
-        </section>
+Modelo TCP/IP: El estándar práctico de Internet (Acceso a Red, Internet, Transporte, Aplicación).
 
-    </main>
+🛠️ 3. Configuración y Componentes Clave
+🔹 Segmentación y VLANs
+Las VLANs (Virtual LANs) segmentan redes físicas en dominios de difusión más pequeños.
 
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center border-t border-slate-800">
-        <p>Repositorio Redes-CCNA &copy; 2026 - Configurado para GitHub Pages</p>
-    </footer>
+VLAN 1: Interfaz de administración predeterminada.
 
-</body>
-</html>
+Trunking (802.1Q): Permite el paso de múltiples VLANs a través de un solo enlace físico.
+
+🔹 Router-on-a-Stick (ROAS)
+Permite la comunicación entre VLANs mediante un router y subinterfaces.
+
+Bash
+# Ejemplo de configuración de subinterfaz en Router (R1)
+R1(config)# interface g0/0.10
+R1(config-subif)# encapsulation dot1Q 10
+R1(config-subif)# ip address 192.168.10.1 255.255.255.0
+📍 4. Laboratorio Práctico: Troubleshooting de VLANs
+Este escenario se enfoca en la resolución de problemas de conectividad en una red con múltiples switches y un router.
+
+Parte 1: Implementación Básica
+Cableado: Conexión de 2 switches, 1 router y 3 PCs.
+
+Direccionamiento: Configuración de IPs estáticas según la tabla de direccionamiento.
+
+Mantenimiento: Inicialización (write erase / reload) para asegurar configuraciones limpias.
+
+Parte 2 y 3: Resolución de Conflictos
+Problema: Error en la asignación de puertos.
+
+Solución: Mover puertos F0/6-12 a la VLAN 10.
+
+Verificación: Asegurar que el enlace entre switches sea Trunk y no Access.
+
+🛡️ 5. Redes en el Pentesting
+El hacking ético analiza la red desde la perspectiva de un atacante para fortalecerla.
+
+🔍 Reconocimiento y Escaneo
+Nmap: Descubrimiento de hosts y servicios.
+
+Stealth Scans: Uso de paquetes SYN para evitar completar el three-way handshake y pasar desapercibido.
+
+🕵️ Ataques MITM (Man-in-the-Middle)
+ARP Spoofing: Envenenamiento de la tabla ARP para interceptar tráfico entre la víctima y el Gateway.
+
+Herramientas: Bettercap, Ettercap.
+
+📶 Seguridad Wi-Fi y Análisis
+Aircrack-ng / Hashcat: Captura de handshakes y cracking de contraseñas por fuerza bruta.
+
+Wireshark: Análisis profundo de protocolos (Capa 2 a Capa 7) para detectar credenciales en texto plano (HTTP/FTP).
